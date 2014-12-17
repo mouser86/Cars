@@ -1,9 +1,5 @@
 <?php
 
-
-    /**
-     * Class CarOwner
-     */
     class CarOwner
     {
         /**
@@ -28,14 +24,14 @@
         }
 
         /**
-         * @return \Car
+         * @return \Car The car of the owner of the car
          */
         public function getCar () {
             return $this->car;
         }
 
         /**
-         * @return string
+         * @return string The province the car owner is living in
          */
         public function getProvince () {
             return $this->province;

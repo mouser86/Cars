@@ -1,6 +1,5 @@
 <?php
 
-
     class Car
     {
 
@@ -32,17 +31,18 @@
         /**
          * Instantiates a new car
          *
-         * @param $model
-         * @param $make
-         * @param $fuelType
-         * @param $weight
-         * @param $price
+         * @param string $model    The car model
+         * @param int    $make     The year the car was build
+         * @param int    $fuelType The car's fuel type
+         * @param float  $weight   The weight of the car
+         * @param float  $price    The price of the car
          */
         public function __construct ($model, $make, $fuelType, $weight, $price) {
-            $this->model  = $model;
-            $this->make   = $make;
-            $this->weight = $weight;
-            $this->price  = $price;
+            $this->model    = $model;
+            $this->make     = $make;
+            $this->fuelType = $fuelType;
+            $this->weight   = $weight;
+            $this->price    = $price;
         }
 
         /**
@@ -60,7 +60,7 @@
         }
 
         /**
-         * @return int
+         * @return int The car's fuel type
          */
         public function getFuelType () {
             return $this->fuelType;
