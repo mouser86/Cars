@@ -10,7 +10,9 @@ var provincesWithData = {
     noord_holland: dataNoordHolland
 };
 
-
+/**
+ *
+ */
 function generatePersonCarData() {
     /*
      Loop through all the provinces with it's data
@@ -30,7 +32,7 @@ function generatePersonCarData() {
             /*
              Explode the row by the # character and convert it back into an array
              */
-            var item = (provinceData[row].split(EXPLODE_CHAR));
+            var item = explodeStringBy(provinceData[row], EXPLODE_CHAR);
 
             /*
              Add the province name to the array
