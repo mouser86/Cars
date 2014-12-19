@@ -11,7 +11,7 @@ const EXPLODE_CHAR = "#";
  * @param array The original JavaScript array
  * @returns {*}
  */
-function convertToJSON(array) {
+function convertToJSON (array) {
     return JSON.stringify(array);
 }
 
@@ -23,11 +23,13 @@ function convertToJSON(array) {
  *
  * @returns {Array} The returned array with all the apart values
  */
-function explodeStringBy(string, character) {
+function explodeStringBy (string, character) {
     return string.split(character);
 }
 
 /**
  * Testing purposes.
+ *
+ * TODO: Place this method somewhere else
  */
 convertPersonCarData();

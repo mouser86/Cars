@@ -10,7 +10,7 @@ var provincesWithData = {
 /**
  * Converts the original JS array's to JSON arrays based on what data is available
  */
-function convertPersonCarData() {
+function convertPersonCarData () {
     /*
      Loop through all the provinces with it's data
      */
@@ -34,12 +34,12 @@ function convertPersonCarData() {
             /*
              Add the province name to the array
              */
-            item.splice(1, 0, province);
+            item.splice(0, 0, province);
 
             /*
              Convert it all to JSON
              */
-            convertToJSON(item);
+            console.log(convertToJSON(item));
         }
     }
 }
