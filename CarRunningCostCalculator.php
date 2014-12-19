@@ -4,12 +4,21 @@
     class CarRunningCostCalculator implements RunningCostCalculator
     {
         /**
-         * @var \Car
+         * @var \Car The car
          */
         private $car;
 
+        /**
+         * @var \CarOwner The owner of the car
+         */
         private $carOwner;
 
+        /**
+         * Instantiates a new calculator for a car's running costs
+         *
+         * @param \Car      $car
+         * @param \CarOwner $carOwner
+         */
         public function __construct (Car $car, CarOwner $carOwner) {
             $this->car      = $car;
             $this->carOwner = $carOwner;

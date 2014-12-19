@@ -29,7 +29,7 @@
         private $price;
 
         /**
-         * Instantiates a new car
+         * Instantiates a new car based on it's model, make year, fuel type, weight and price
          *
          * @param string $model    The car model
          * @param int    $make     The year the car was build

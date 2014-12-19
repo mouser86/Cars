@@ -8,7 +8,7 @@
         private $car;
 
         /**
-         * @var string The province the car owner is living in
+         * @var int The province the car owner is living in
          */
         private $province;
 
@@ -16,7 +16,7 @@
          * Instantiates a new car owner
          *
          * @param \Car $car The car
-         * @param      $province
+         * @param int $province
          */
         public function __construct (Car $car, $province) {
             $this->car      = $car;
