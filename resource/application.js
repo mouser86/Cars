@@ -27,4 +27,7 @@ function explodeStringBy(string, character) {
     return string.split(character);
 }
 
-generatePersonCarData();
+/**
+ * Testing purposes.
+ */
+convertPersonCarData();

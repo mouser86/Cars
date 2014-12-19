@@ -1,8 +1,5 @@
 /**
- * Created by Bas on 19-12-2014.
- */
-
-/**
+ * A placeholder to know which province is part of which data array
  *
  * @type {{noord_holland: (dataNoordHolland|*)}}
  */
@@ -11,9 +8,9 @@ var provincesWithData = {
 };
 
 /**
- *
+ * Converts the original JS array's to JSON arrays based on what data is available
  */
-function generatePersonCarData() {
+function convertPersonCarData() {
     /*
      Loop through all the provinces with it's data
      */
