@@ -8,9 +8,16 @@ var provincesWithData = {
 };
 
 /**
- * Converts the original JS array's to JSON arrays based on what data is available
+ * Holds all the personen car data
+ *
+ * @type {Array}
  */
-function convertPersonCarData () {
+var data = [];
+
+/**
+ * Gets every row in the personen_auto.js arrays, convert it to an array and store it inside a variable
+ */
+function generatePersonCarData () {
     /*
      Loop through all the provinces with it's data
      */
@@ -37,9 +44,18 @@ function convertPersonCarData () {
             item.splice(0, 0, province);
 
             /*
-             Convert it all to JSON
+             Convert it all to JSON and store it into an array
              */
-            console.log(convertToJSON(item));
+            data.push(item);
         }
     }
+}
+
+/**
+ * Gets all the rows inside the data variable
+ *
+ * @returns {Array}
+ */
+function getPersonCarData () {
+    return data;
 }
