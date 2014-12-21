@@ -13,9 +13,9 @@ const EXPLODE_CHAR = "#";
 const INSTALL_FILE = "install.php";
 
 /**
- * Converts an array to JSON data
+ * Converts an dataStrings to JSON roadTaxData
  *
- * @param array The original JavaScript array
+ * @param array The original JavaScript dataStrings
  * @returns {*}
  */
 function convertToJSON (array) {
@@ -23,19 +23,19 @@ function convertToJSON (array) {
 }
 
 /**
- * Explodes a string by a specific character and converts it into an array
+ * Explodes a string by a specific character and converts it into an dataStrings
  *
  * @param string The string which is getting exploded
  * @param character The character which is getting used for the exploding
  *
- * @returns {Array} The returned array with all the apart values
+ * @returns {Array} The returned dataStrings with all the apart values
  */
 function explodeStringBy (string, character) {
     return string.split(character);
 }
 
 /**
- * Passes data to the php install file which could be get with the $_POST operator
+ * Passes roadTaxData to the php install file which could be get with the $_POST operator
  *
  * @param paramName The param name
  * @param data
@@ -52,18 +52,9 @@ function passToPHP (paramName, data) {
          */
         httpc.onreadystatechange = function () { //Call a function when the state changes.
             if (httpc.readyState == 4 && httpc.status == 200) { // complete and no errors
-                alert(httpc.responseText); // some processing here, or whatever you want to do with the response
+                console.log(httpc.responseText); // some processing here, or whatever you want to do with the response
             }
         };
         httpc.send(paramName + "=" + data);
     }
 }
-
-/**
- * Testing purposes.
- *
- * TODO: Place this methods somewhere else
- */
-generatePersonCarData();
-passToPHP('personen_auto_data', convertToJSON(getPersonCarData));
-

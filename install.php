@@ -2,6 +2,9 @@
 
     header('Content-Type: application/json');
 
-    $data = json_decode($_POST['data']);
+    $personen_auto = $_POST['personen_auto'];
+    $kampeer_auto  = $_POST['kampeer_auto'];
 
-    var_dump($data[0]);
+
+    print_r(json_decode($personen_auto));
+    print_r(json_decode($kampeer_auto));
