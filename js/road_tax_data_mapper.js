@@ -19,10 +19,7 @@ var roadTaxData = {
             data_zeeland: dataZeeland
             //TODO: Add all the provinces with it's data to the personen_auto object
         },
-        kampeer_auto: {
-            prs3: dataNoordHolland,
-            prs4: dataZeeland
-        }
+        kampeer_auto: {}
     },
 
     /**

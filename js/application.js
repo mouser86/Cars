@@ -36,11 +36,8 @@ function explodeStringBy (string, character) {
 
 /**
  * Passes roadTaxData to the php install file which could be get with the $_POST operator
- *
- * @param paramName The param name
- * @param data
  */
-function passToPHP (paramName, data) {
+function passToPHP (paramName, value) {
     if (typeof paramName === "string" && typeof data === "string") {
         var httpc = new XMLHttpRequest(); // simplified for clarity"
         httpc.open("POST", INSTALL_FILE, true); // sending as POST
@@ -55,6 +52,10 @@ function passToPHP (paramName, data) {
                 console.log(httpc.responseText); // some processing here, or whatever you want to do with the response
             }
         };
-        httpc.send(paramName + "=" + data);
+        httpc.send(paramName + "=" + value);
     }
+}
+
+function buildString (varName, value) {
+
 }

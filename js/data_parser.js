@@ -1,3 +1,5 @@
+var list = {};
+
 /*
  Loop through all the specific vehicle types inside the provinceWeightFuelPricesData object
  */
@@ -11,6 +13,9 @@ for (var vehicleType in roadTaxData.provinceWeightFuelPricesData) {
      */
         provinces = roadTaxData.provinceWeightFuelPricesData[vehicleType];
 
+
+    list[vehicleType] = {};
+
     /*
      Loop through all province's with its data in the specific vehicle type
      */
@@ -23,6 +28,8 @@ for (var vehicleType in roadTaxData.provinceWeightFuelPricesData) {
          Add the province to the object as an key
          */
         data[province] = [];
+
+        list[vehicleType][province] = [];
         /*
          Loop through the data which belongs to every province
          */
@@ -32,10 +39,12 @@ for (var vehicleType in roadTaxData.provinceWeightFuelPricesData) {
              Add the province data to the array
              */
             data[province].push(provinceData[provinceDataIndex]);
+
+            list[vehicleType][province].push(provinceData[provinceDataIndex]);
         }
         console.log('Parsed a the province: ' + province + " from the vehicle type " + vehicleType);
     }
     console.log('Parsed the vehicle type: ' + vehicleType);
-    console.log(data);
-    //passToPHP(vehicleType JSON.stringify(data));
 }
+
+console.log(list);
