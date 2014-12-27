@@ -2,9 +2,11 @@
 
     header('Content-Type: application/json');
 
-    $personen_auto = $_POST['personen_auto'];
-    $kampeer_auto  = $_POST['kampeer_auto'];
+    $personen_auto = json_decode($_POST['personen_auto'], true);
+    $kampeer_auto  = json_decode($_POST['kampeer_auto'], true);
+    //... All the vehicle types
 
 
-    print_r(json_decode($personen_auto));
-    print_r(json_decode($kampeer_auto));
+    print_r($personen_auto);
+    print_r($kampeer_auto);
+    //... Testing

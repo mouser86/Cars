@@ -1,50 +1,69 @@
-var list = {};
-
-/*
- Loop through all the specific vehicle types inside the provinceWeightFuelPricesData object
+/**
+ * @type {string} The HTTP query which is getting send to PHP
  */
-for (var vehicleType in roadTaxData.provinceWeightFuelPricesData) {
+var httpQuery = "";
+
+/**
+ * Parses the road tax data (converted to JSON format) into the HTTP query
+ */
+function parseRoadTaxData () {
     /*
-     Where the data is getting stored for each vehicle type
+     Loop through all the road tax data
      */
-    var data = {},
-    /*
-     Every province with its data contained in the vehicle type
-     */
-        provinces = roadTaxData.provinceWeightFuelPricesData[vehicleType];
-
-
-    list[vehicleType] = {};
-
-    /*
-     Loop through all province's with its data in the specific vehicle type
-     */
-    for (var province in provinces) {
+    for (var vehicleFormatType in roadTaxData) {
         /*
-         Define each province data
+         Define every vehicle type inside this vehicle type format
          */
-        var provinceData = provinces[province];
-        /*
-         Add the province to the object as an key
-         */
-        data[province] = [];
+        var vehicleTypes = roadTaxData[vehicleFormatType];
 
-        list[vehicleType][province] = [];
         /*
-         Loop through the data which belongs to every province
+         Loop through the vehicle types
          */
-        for (var provinceDataIndex = 0; provinceDataIndex < provinceData.length; provinceDataIndex++) {
-
+        for (var vehicleType in vehicleTypes) {
             /*
-             Add the province data to the array
+             Add the vehicle type with it's data to the HTTP query
              */
-            data[province].push(provinceData[provinceDataIndex]);
-
-            list[vehicleType][province].push(provinceData[provinceDataIndex]);
+            updateHTTPQuery(vehicleType, JSON.stringify(vehicleTypes[vehicleType]));
         }
-        console.log('Parsed a the province: ' + province + " from the vehicle type " + vehicleType);
     }
-    console.log('Parsed the vehicle type: ' + vehicleType);
+    /*
+     Remove the & character from the end of the HTTP query string
+     */
+    trimHTTPQuery();
 }
 
-console.log(list);
+/**
+ * Adds data to the HTTP query string
+ *
+ * @param parameterName The parameter name of the HTTP query which is getting added to the HTTP query string
+ * @param value The value of the parameter name which is getting to the HTTP query string
+ */
+function updateHTTPQuery (parameterName, value) {
+    httpQuery += (parameterName + "=" + value + "&");
+}
+
+/**
+ * Removes the "&" character from the end of the HTTP query string
+ */
+function trimHTTPQuery () {
+    httpQuery = httpQuery.replace(/&+$/, "");
+}
+
+/**
+ * Gets the HTTP query string
+ *
+ * @returns {string} The HTTP query string
+ */
+function getHTTPQuery () {
+    return httpQuery;
+}
+
+/*
+ Call the function to parse all data into the HTTP query string
+ */
+parseRoadTaxData();
+
+/*
+ Call the function to pass the whole HTTP query to PHP in seperate $_POST variables
+ */
+passToPHP(getHTTPQuery());

@@ -1,6 +1,6 @@
 var roadTaxData = {
     /**
-     * provinceWeightFuelPricesData has the required parameters:
+     * provinceWeightFuelPricesVehicles has the required parameters:
      *
      * - Province
      * - Weight from
@@ -9,17 +9,19 @@ var roadTaxData = {
      * - LPG3/earth-gas price
      * - LPG/others price
      *
-     * Data for provinceWeightFuelPricesData is defined like:
+     * Data for provinceWeightFuelPricesVehicles is defined like:
      *
      * Vehicle type -> each province -> each province it's data
      */
-    provinceWeightFuelPricesData: {
+    provinceWeightFuelPricesVehicles: {
         personen_auto: {
             noord_holland: dataNoordHolland,
-            data_zeeland: dataZeeland
+            zeeland: dataZeeland
             //TODO: Add all the provinces with it's data to the personen_auto object
         },
-        kampeer_auto: {}
+        kampeer_auto : {
+            //TODO: Add all the data, not nessecary here. You get the point.
+        }
     },
 
     /**
@@ -41,11 +43,15 @@ var roadTaxData = {
         }
     },
 
-    weightQuarterPriceYearPriceData: {},
+    weightQuarterPriceYearPriceData  : {
+        //TODO: Add all the data, not nessecary here. You get the point.
+    },
     provinceQuarterPriceYearPriceData: {
         handelaars_kenteken: {
-            noord_holland: dataNoordHolland
+            //TODO: Add all the data, not nessecary here. You get the point.
         },
-        motoren: {}
+        motoren            : {
+            //TODO: Add all the data, not nessecary here. You get the point.
+        }
     }
 };
