@@ -1,4 +1,4 @@
-# Vehicle cost calculator!
+# VehicleType cost calculator!
 *by Bas van Driel*
 
 

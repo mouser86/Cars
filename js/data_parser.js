@@ -1,61 +1,45 @@
 /**
- * @type {string} The HTTP query which is getting send to PHP
+ * @type {string} The data which is getting send to PHP
  */
-var httpQuery = "";
+var data = "";
 
 /**
- * Parses the road tax data (converted to JSON format) into the HTTP query
+ * Parses the road tax data and stores it into the data string as JSON format
  */
 function parseRoadTaxData () {
+    var object = {};
     /*
      Loop through all the road tax data
      */
     for (var vehicleFormatType in roadTaxData) {
         /*
-         Define every vehicle type inside this vehicle type format
+         Define all vehicle types which belong to that vehicle type format
          */
         var vehicleTypes = roadTaxData[vehicleFormatType];
 
         /*
-         Loop through the vehicle types
+         Loop through all the vehicle types
          */
         for (var vehicleType in vehicleTypes) {
             /*
-             Add the vehicle type with it's data to the HTTP query
+             Add the vehicle data to the JSON object
              */
-            updateHTTPQuery(vehicleType, JSON.stringify(vehicleTypes[vehicleType]));
+            object[vehicleType.toLowerCase()] = vehicleTypes[vehicleType];
         }
     }
     /*
-     Remove the & character from the end of the HTTP query string
+     Parse the javascript object (converted to JSON format) into the data string.
      */
-    trimHTTPQuery();
+    data = JSON.stringify(object);
 }
 
 /**
- * Adds data to the HTTP query string
+ * Gets the data which is going to be send to PHP
  *
- * @param parameterName The parameter name of the HTTP query which is getting added to the HTTP query string
- * @param value The value of the parameter name which is getting to the HTTP query string
+ * @returns {string} The JSON data string
  */
-function updateHTTPQuery (parameterName, value) {
-    httpQuery += (parameterName + "=" + value + "&");
-}
-
-/**
- * Removes the "&" character from the end of the HTTP query string
- */
-function trimHTTPQuery () {
-    httpQuery = httpQuery.replace(/&+$/, "");
-}
-
-/**
- * Gets the HTTP query string
- *
- * @returns {string} The HTTP query string
- */
-function getHTTPQuery () {
-    return httpQuery;
+function getData () {
+    return data;
 }
 
 /*
@@ -66,4 +50,4 @@ parseRoadTaxData();
 /*
  Call the function to pass the whole HTTP query to PHP in seperate $_POST variables
  */
-passToPHP(getHTTPQuery());
+passToPHP('road-tax_data', getData());

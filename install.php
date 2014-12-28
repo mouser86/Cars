@@ -1,12 +1,17 @@
 <?php
 
-    header('Content-Type: application/json');
+    /*
+     * Include the file
+     */
+    require "RoadTaxDataTemporaryRegistry.php";
 
-    $personen_auto = json_decode($_POST['personen_auto'], true);
-    $kampeer_auto  = json_decode($_POST['kampeer_auto'], true);
-    //... All the vehicle types
+    /*
+     * Start the session
+     */
+    session_start();
 
+    /*
+     *
+     */
+    RoadTaxDataTemporaryRegistry::store(json_decode($_POST['road-tax_data'], true));
 
-    print_r($personen_auto);
-    print_r($kampeer_auto);
-    //... Testing
