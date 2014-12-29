@@ -65,4 +65,13 @@
          * Defines the province Zuid Holland
          */
         const ZUID_HOLLAND = 1024;
+
+        /**
+         * @param $province
+         *
+         * @return mixed
+         */
+        public static function getProvinceName ($province) {
+            return array_flip((new \ReflectionClass(new self))->getConstants())[$province];
+        }
     }

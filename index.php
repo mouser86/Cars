@@ -21,22 +21,16 @@
     require "vehicle/FuelType.php";
     require "vehicle/Province.php";
 
+    $myCar    = new PassengerCar(1999, FuelType::BENZINE, 209, 900.99);
+    $carOwner = new VehicleOwner($myCar, Province::ZEELAND);
+
     /*
      * Start the session to retrieve all the road tax data
      */
     session_start();
 
-    $myCar    = new PassengerCar(1999, FuelType::BENZINE, 209, 900.99);
-    $carOwner = new VehicleOwner($myCar, Province::ZEELAND);
+    var_dump(RoadTaxDataTemporaryRegistry::getStorageByVehicle($myCar));
 
-
-    $vehicleData = RoadTaxDataTemporaryRegistry::getStorageByVehicle($myCar)['noord_holland'];
-
-    for ($vehicleDataIndex = 0; $vehicleDataIndex < count($vehicleData); $vehicleDataIndex++) {
-        //....
-    }
-
-    //session_destroy();
 
 ?>
 </body>

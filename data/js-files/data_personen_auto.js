@@ -53,7 +53,7 @@ var dataNoordHolland = [
 
 
 var dataZeeland = [
-    "1#kankertjeveel#90#26#101",
+    "1#random#90#26#101",
     "551#34#109#34#124",
     "651#42#129#42#147",
     "751#55#154#55#175",

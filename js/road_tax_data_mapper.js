@@ -14,7 +14,6 @@ var roadTaxData = {
      * VehicleType type -> each province -> each province it's data
      */
     provinceWeightFuelPricesVehicles: {
-
         passengerCar: {
             noord_holland: dataNoordHolland
             //TODO: Add all the provinces with it's data to the passenger_car object

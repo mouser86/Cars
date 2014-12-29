@@ -10,8 +10,6 @@
      */
     session_start();
 
-    /*
-     *
-     */
+
     RoadTaxDataTemporaryRegistry::store(json_decode($_POST['road-tax_data'], true));
 

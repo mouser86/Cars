@@ -20,7 +20,7 @@
         }
 
         /**
-         * Gets the whole storage which has just been parsed
+         * Gets the road tax data of a vehicle
          *
          * @param string $vehicle
          *
